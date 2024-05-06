@@ -54,7 +54,7 @@
                                         </div>
 
                                         <div>
-                                            <x-input-label for="event_id" :value="__('Event')" />
+                                            <x-input-label for="event_id" :value="__('Event added by me')" />
                                             <select id="event_id" name="event_id" class="mt-1 block w-full" >
                                                 <option value="">Select Event</option>
                                                 @foreach($events as $event)

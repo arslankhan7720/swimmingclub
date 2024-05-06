@@ -21,6 +21,9 @@ class UserController extends Controller
             return redirect()->route('parent');
         }else if( $user->role == 'coach' ){
             return redirect()->route('coach');
+        }else if($user->role == 'swimmer'){
+            $performance = Performance::with(['event','swimmer'])->where('swimmer_id', $user->id)->get();
+            return view('users.swimmer.swimmerdashboard', ['performance' => $performance ]);
         }else{
             return view('dashboard');
         }
@@ -195,9 +198,6 @@ class UserController extends Controller
     // ============================================================================================================ //
     public function swimmerVerification(Request $request){
 
-
-
-
         // dd($request->toArray());
         $requestArray = $request->toArray();
         if(!empty($requestArray)){
@@ -245,6 +245,27 @@ class UserController extends Controller
         }
         // Optionally, you can redirect the user after successful save
         return redirect()->route('verifyPerformance')->with('success', 'Performance verified successfully.');
+    }
+
+
+
+
+      // ============================================================================================================ //
+    // ============================================================================================================ //
+    public function coachVerification(Request $request){
+
+        // dd($request->toArray());
+        $requestArray = $request->toArray();
+        if(!empty($requestArray)){
+            $user = User::where('id', $requestArray['id'])->first();
+            if($user){
+                $user->status = 'verified';
+                $user->save();
+            }
+        }
+
+        $coaches = User::where('role', 'coach')->where('status','unverified')->get();
+        return view('users.coachVerification', ['coaches' => $coaches]);
     }
 
 }

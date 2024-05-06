@@ -19,6 +19,18 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
+    public function coach(): View
+    {
+        return view('auth.coach');
+    }
+
+
+    public function parent(): View
+    {
+        return view('auth.parent');
+    }
+
+
     /**
      * Handle an incoming authentication request.
      */

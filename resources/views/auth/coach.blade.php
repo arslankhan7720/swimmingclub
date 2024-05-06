@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full space-y-8">
-
+            <h1  class="text-center text-4xl font-extrabold text-gray-900">Coach</h1>
             <div>
                 <h2 class="text-center text-3xl font-extrabold text-gray-900">
                     Sign in to your account

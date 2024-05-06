@@ -68,7 +68,7 @@
                     {{$perf->swimmer->phone_no}}</td>
 
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{$perf->event->name}}</td>
+                    {{ $perf->event? $perf->event->name : ''}}</td>
 
                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {{$perf->p_date}}</td>

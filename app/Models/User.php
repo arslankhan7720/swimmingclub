@@ -30,6 +30,7 @@ class User extends Authenticatable
         'phone_no',
         'postcode',
         'role',
+        'status',
         // Add more fields as needed
     ];
 

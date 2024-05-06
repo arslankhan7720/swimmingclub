@@ -13,6 +13,15 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <style>
+           .headerNav > a {
+                text-align: center;
+                font-size: 12px;
+                margin-left: 5px !important;
+                box-shadow: 1px 2px 4px 1px hsla(98,55%,69%,.2);
+            }
+
+        </style>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

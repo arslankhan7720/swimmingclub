@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -43,6 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/swimmerVerification', [UserController::class, 'swimmerVerification'])->name('swimmerVerification');
     Route::get('/swimmerVerification/{id}', [UserController::class, 'swimmerVerification'])->name('postswimmerVerification');
 
+    Route::get('/coachVerification', [UserController::class, 'coachVerification'])->name('coachVerification');
+    Route::get('/coachVerification/{id}', [UserController::class, 'coachVerification'])->name('postcoachVerification');
+
 
     Route::get('/coach', [CoachController::class, 'index'])->name('coach');
 
@@ -63,9 +68,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/postVerifyPerformance/{id}', [UserController::class, 'postVerifyPerformance'])->name('postVerifyPerformance');
 
 
+
 });
 
 Route::get('/test', [TestController::class, 'index']);
+
+
+Route::get('coach-login', [AuthenticatedSessionController::class, 'coach'])->name('coach-login');
+Route::get('parent-login', [AuthenticatedSessionController::class, 'parent'])->name('parent-login');
 
 
 require __DIR__.'/auth.php';

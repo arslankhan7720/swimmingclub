@@ -11,7 +11,8 @@ class HomeController extends Controller
 
 
         $events = Event::all();
-        return view('welcome', ['events' => $events]);
+        // return view('welcome', ['events' => $events]);
+        return view('home.home', ['events' => $events]);
     }
 
 
